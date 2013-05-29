@@ -15,12 +15,16 @@ class Watch
 	end
 
 	def is_alive?
-		uri = URI(@url)
-		request = Net::HTTP.get_response(uri)
-		unless request.is_a?(Net::HTTPSuccess)
-			@log.warn "Error executing request"
-		else
-			@log.info "Is alive."
+		begin
+			uri = URI(@url)
+			request = Net::HTTP.get_response(uri)
+			unless request.is_a?(Net::HTTPSuccess)
+				@log.warn "Error executing request"
+			else
+				@log.info "Is alive."
+			end
+		rescue Exception => e
+			@log.warn "Big error."
 		end
 	end
 end
@@ -28,7 +32,7 @@ end
 w = Watch.new("http://nomethoderror.herokuapp.com/")
 
 EM.run do
-	EM.add_periodic_timer(60*5) do
+	EM.add_periodic_timer(60*5/60) do
 		w.is_alive?	
 	end
 end
