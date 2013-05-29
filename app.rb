@@ -32,7 +32,7 @@ end
 w = Watch.new("http://nomethoderror.herokuapp.com/")
 
 EM.run do
-	EM.add_periodic_timer(60*5/60) do
+	EM.add_periodic_timer(60*2) do
 		w.is_alive?	
 	end
 end
