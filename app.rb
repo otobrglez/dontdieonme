@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+$stdout.sync = true
+
 require 'bundler/setup'
 require 'net/http'
 require 'logger'
