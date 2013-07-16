@@ -12,5 +12,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   eventmachine
   foreman

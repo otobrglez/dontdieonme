@@ -6,11 +6,15 @@ require 'bundler/setup'
 require 'net/http'
 require 'logger'
 require 'eventmachine'
+require 'dotenv'
+
+Dotenv.load unless ENV["ENV"] == "production"
 
 class Watch
 	def initialize url
 		@url = url
 		@log = Logger.new(STDOUT)
+		@log.info "Tracking: #{url}"
 		@log.info "App is up."
 	end
 
@@ -29,11 +33,11 @@ class Watch
 	end
 end
 
-w = Watch.new("http://nomethoderror.herokuapp.com/")
+w = Watch.new(ENV["URL_TO_GET"])
 
 EM.run do
 	EM.add_periodic_timer(60*2) do
-		w.is_alive?	
+		w.is_alive?
 	end
 end
 
