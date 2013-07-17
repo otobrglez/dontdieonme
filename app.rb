@@ -28,7 +28,7 @@ class Watch
 				@log.info "Is alive."
 			end
 		rescue Exception => e
-			@log.warn "Big error."
+			@log.warn e.to_s
 		end
 	end
 end
