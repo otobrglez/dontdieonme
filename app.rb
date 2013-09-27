@@ -13,7 +13,7 @@ Dotenv.load unless ENV["ENV"] == "production"
 Rollbar.configuration.access_token = ENV["ROLLBAR_ACCESS_TOKEN"]
 Rollbar.configuration.endpoint = ENV["ROLLBAR_ENDPOINT"]
 
-Rollbar.configuration.environment = "production"
+Rollbar.configuration.environment = ENV["ENV"] ||= "production"
 Rollbar.configuration.framework = "Ruby: 2.0.0"
 
 class Watch
