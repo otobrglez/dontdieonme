@@ -18,4 +18,6 @@ On Heroku set 2 variables one is for enviroment and one is url that has to be re
 
     heroku config:set ENV=production URL_TO_GET=http://some-url-to-get.com/
 
-Also scale Heroku to 1 worker!
+Also scale Heroku to 1 worker with the following command:
+
+    heroku ps:scale app=1
