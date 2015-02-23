@@ -11,6 +11,7 @@ Make sure you add following to environment variables:
 
 - [Oto Brglez](https://github.com/otobrglez)
 - [Jakob Cvetko](https://github.com/jakobboss)
+- [Jure Žove](https://github.com/jurezove)
 
 ## Configuration
 
